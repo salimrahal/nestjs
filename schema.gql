@@ -1,0 +1,111 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Item {
+  description: String!
+  rate: Float!
+  quantity: Float!
+}
+
+type InvoiceModel {
+  id: String!
+  invoiceNo: String!
+  description: String!
+  customer: CustomerModel!
+  paymentStatus: String!
+  currency: String!
+  taxRate: Float!
+  issueDate: String!
+  dueDate: String!
+  note: String!
+  items: [Item!]!
+  taxAmount: Float!
+  subTotal: Float!
+  total: String!
+  amountPaid: Float!
+  outstandingBalance: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type CustomerModel {
+  id: String!
+  name: String!
+  email: String!
+  phone: String!
+  address: String!
+  invoices: [InvoiceModel!]
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Query {
+  CustomerModel(id: String!): CustomerModel!
+  InvoiceModel(id: String!): InvoiceModel!
+}
+
+type Mutation {
+  createCustomer(name: String!, email: String!, phone: String, address: String): CustomerModel!
+  updateCustomer(updateCustomerInput: UpdateCustomerInput!): CustomerModel!
+  removeCustomer(id: String!): CustomerModel!
+  createInvoice(createInvoiceInput: CreateInvoiceInput!): InvoiceModel!
+  updateInvoice(updateInvoiceInput: UpdateInvoiceInput!): InvoiceModel!
+  removeInvoice(id: String!): InvoiceModel!
+}
+
+input UpdateCustomerInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+
+  """Example field (placeholder)"""
+  name: String
+
+  """Example field (placeholder)"""
+  email: String
+
+  """Example field (placeholder)"""
+  phone: String
+
+  """Example field (placeholder)"""
+  address: String
+  id: Int!
+}
+
+input CreateInvoiceInput {
+  customer: String!
+  invoiceNo: String!
+  paymentStatus: String!
+  description: String!
+  currency: String!
+  taxRate: Float!
+  issueDate: DateTime!
+  dueDate: DateTime!
+  note: String!
+  items: [ItemDTO!]!
+}
+
+input ItemDTO {
+  description: String!
+  rate: Float!
+  quantity: Float!
+}
+
+input UpdateInvoiceInput {
+  customer: String
+  invoiceNo: String
+  paymentStatus: String
+  description: String
+  currency: String
+  taxRate: Float
+  issueDate: DateTime
+  dueDate: DateTime
+  note: String
+  items: [ItemDTO!]
+  id: Int!
+}

@@ -1,17 +1,20 @@
-## blog
+## a sample Nestjs Graphql CRUD application 
 
 step by step:
 -------------
 
-npm i -g @nestjs/cli
-nest new project-name
-npm i @nestjs/graphql @nestjs/apollo @apollo/server graphql
-npm install --save @nestjs/typeorm typeorm pg
+npm i -g @nestjs/cli<br>
+nest new project-name<br>
+npm i @nestjs/graphql @nestjs/apollo @apollo/<br>server graphql<br>
+npm install --save @nestjs/typeorm typeorm pg<br>
 
  nest g res customer # gen crud graphql code first
- nest g res invoice
+ nest g res invoice<br>
  
-nest g resolver  customer #create resolver customer under custmer folder, cd src/
+nest g resolver  customer #create resolver <br>customer under custmer folder, cd src/
+
+Access:
+http://localhost:3000/graphql
 
 ref: https://blog.logrocket.com/how-to-build-graphql-api-nestjs/#building-graphql-api
 
